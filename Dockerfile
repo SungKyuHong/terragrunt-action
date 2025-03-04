@@ -8,6 +8,10 @@ ENV MISE_DATA_DIR=~/.local/share/mise
 ENV MISE_CACHE_DIR=~/.cache/mise
 ENV ASDF_HASHICORP_TERRAFORM_VERSION_FILE=.terraform-version
 
+RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
+    unzip awscliv2.zip && \
+    ./aws/install
+
 COPY ["./src/main.sh", "/action/main.sh"]
 
 ENTRYPOINT ["/action/main.sh"]
