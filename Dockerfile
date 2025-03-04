@@ -12,7 +12,7 @@ RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2
     unzip awscliv2.zip && \
     ./aws/install
 
-RUN apt-get update && apt-get install -y docker-ce-cl
+RUN apt-get update && apt-get install -y docker-ce-cli
 VOLUME ["/var/run/docker.sock"]
 
 COPY ["./src/main.sh", "/action/main.sh"]
